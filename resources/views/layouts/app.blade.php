@@ -4,7 +4,6 @@
 <head>
   @include('includes.admin.meta')
 
-
   <title>
     @yield('title') | Himadira
   </title>
