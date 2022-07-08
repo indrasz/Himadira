@@ -14,7 +14,7 @@ class DocumentationController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.admin.documentation.index');
     }
 
     /**

@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse w-auto h-auto" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="">
+          <a class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}" href="{{ route('dashboard.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
@@ -18,7 +18,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+            <a class="nav-link
+            {{
+                (request()->is('dashboard/department')) ||
+                request()->is('dashboard/department/*') ||
+                request()->is('dashboard/*/department') ||
+                request()->is('dashboard/*/department/*') ? 'active' : ''
+
+            }}" href="{{ route('dashboard.department.index') }}"
+            >
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -26,7 +34,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link {{
+            (request()->is('dashboard/documentation')) ||
+            request()->is('dashboard/documentation/*') ||
+            request()->is('dashboard/*/documentation') ||
+            request()->is('dashboard/*/documentation/*') ? 'active' : ''
+
+        }}" href="{{ route('dashboard.documentation.index') }}"
+        >
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
             </div>
@@ -34,7 +49,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link {{
+            (request()->is('dashboard/store')) ||
+            request()->is('dashboard/store/*') ||
+            request()->is('dashboard/*/store') ||
+            request()->is('dashboard/*/store/*') ? 'active' : ''
+
+        }}" href="{{ route('dashboard.store.index') }}"
+        >
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
@@ -42,7 +64,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link {{
+            (request()->is('dashboard/creation')) ||
+            request()->is('dashboard/creation/*') ||
+            request()->is('dashboard/*/creation') ||
+            request()->is('dashboard/*/creation/*') ? 'active' : ''
+
+        }}" href="{{ route('dashboard.creation.index') }}"
+        >
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
             </div>
@@ -53,7 +82,14 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li> --}}
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link {{
+            (request()->is('dashboard/info')) ||
+            request()->is('dashboard/info/*') ||
+            request()->is('dashboard/*/info') ||
+            request()->is('dashboard/*/info/*') ? 'active' : ''
+
+        }}" href="{{ route('dashboard.info.index') }}"
+        >
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
