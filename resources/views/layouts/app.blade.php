@@ -2,36 +2,36 @@
 <html lang="en">
 
 <head>
-  @include('includes.admin.meta')
+    @include('includes.admin.meta')
 
-  <title>
-    @yield('title') | Himadira
-  </title>
+    <title>
+        @yield('title') | Himadira
+    </title>
 
-  @include('includes.admin.style')
+    @include('includes.admin.style')
 
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-  <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
-  @include('includes.admin.sidebar')
+    @include('includes.admin.sidebar')
 
-  <main class="main-content position-relative border-radius-lg ">
-    <!-- Navbar -->
-    @include('includes.admin.navbar')
-    <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <main class="main-content position-relative border-radius-lg ">
+        <!-- Navbar -->
+        @include('includes.admin.navbar')
+        <!-- End Navbar -->
+        <div class="container-fluid py-4">
 
-        @yield('content')
+            @yield('content')
 
-    </div>
+        </div>
 
-  </main>
+    </main>
 
-  @include('includes.admin.setting')
+    @include('includes.admin.setting')
 
-  @include('includes.admin.script')
+    @include('includes.admin.script')
 
 </body>
 
