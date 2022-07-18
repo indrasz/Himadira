@@ -3,6 +3,9 @@
   <script src="{{ asset('admin/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
   <script src="{{ asset('admin/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
   <script src="{{ asset('admin/assets/js/plugins/chartjs.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
+
+  <script src="{{ url('https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js') }}"></script>
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 

@@ -7,3 +7,4 @@
   <link href="{{ asset('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('admin/assets/css/argon-dashboard.css?v=2.0.2') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url('https://unpkg.com/flickity@2/dist/flickity.min.css') }}">

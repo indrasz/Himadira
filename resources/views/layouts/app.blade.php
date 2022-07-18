@@ -8,7 +8,11 @@
         @yield('title') | Himadira
     </title>
 
+    @stack('before-style')
+
     @include('includes.admin.style')
+
+    @stack('after-style')
 
 </head>
 
@@ -31,7 +35,11 @@
 
     @include('includes.admin.setting')
 
+    @stack('before-script')
+
     @include('includes.admin.script')
+
+    @stack('after-script')
 
 </body>
 
