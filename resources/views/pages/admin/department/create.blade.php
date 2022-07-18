@@ -16,6 +16,7 @@
                 </div> --}}
             </div>
         </div>
+        
         <div class="card-body">
             <h6 class="heading-small text-muted mb-4">Department Profile</h6>
             <form action="" method="post" enctype="multipart/form-data">
