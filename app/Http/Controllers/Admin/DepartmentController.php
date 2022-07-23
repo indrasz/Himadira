@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Department;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\Admin\DepartmentRequest;
 
 class DepartmentController extends Controller
 {
@@ -14,7 +17,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.department.index');
+        $department = Department::orderBy('created_at', 'desc')->get();
+        return view('pages.admin.department.index', compact('department'));
     }
 
     /**
@@ -33,9 +37,13 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DepartmentRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['thumbnail'] = $request->file('thumbnail')->store('assets/thumbnail/department', 'public');
+        Department::create($data);
+
+        return redirect()->route('dashboard.department.index');
     }
 
     /**
@@ -46,7 +54,7 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -55,9 +63,9 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Department $department)
     {
-        //
+        return view('pages.admin.department.edit', compact('department'));
     }
 
     /**
@@ -67,9 +75,29 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DepartmentRequest $request, Department $department)
     {
-        //
+        $data = $request->all();
+
+        $get_photo = Department::findOrFail($department->id);
+
+        if(isset($data['thumbnail'])){
+            $path = 'storage/'.$get_photo['thumbnail'];
+
+            if(File::exists($path)){
+                File::delete($path);
+            }else{
+                File::delete('storage/app/public/'.$get_photo['thumbnail']);
+            }
+
+            $data['thumbnail'] = $request->file('thumbnail')->store(
+                'assets/thumbnail/department', 'public'
+            );
+        }
+
+        $department->update($data);
+
+        return redirect()->route('dashboard.department.index');
     }
 
     /**
@@ -80,6 +108,9 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $department = Department::findorFail($id);
+        $department->delete();
+        // toast()->success('Delete has been success');
+        return redirect()->route('dashboard.department.index');
     }
 }

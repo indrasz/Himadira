@@ -34,7 +34,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
             Route::resource('creation', CreationController::class);
             Route::resource('info', InfoController::class);
             Route::resource('documentation', DocumentationController::class);
-
         });
     });
 });
