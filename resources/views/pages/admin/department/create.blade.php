@@ -66,7 +66,7 @@
         .uploader .image-uploader {
             width:300px;
             min-height:350px;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
         }
 
