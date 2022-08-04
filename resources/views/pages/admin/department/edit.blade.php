@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-8">
-                    <h6 class="mb-0">Add Department </h6>
+                    <h6 class="mb-0">Edit Department </h6>
                 </div>
                 {{-- <div class="col-4 text-end">
                     <a href="#!" class="btn btn-sm bg-gradient-primary mb-0">Settings</a>
@@ -18,25 +18,22 @@
         </div>
         <div class="card-body">
             <h6 class="heading-small text-muted mb-4">Department Profile</h6>
-            <form action="{{ route('dashboard.department.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('dashboard.department.update', [$department->id]) }}" method="post" enctype="multipart/form-data">
+                @method('PUT')
                 @csrf
                 <div class="row">
 
-                    {{-- form for input file image --}}
                     <div class="uploader border-2" onclick="$('#filePhoto').click()">
-                        <img class="image-uploader" src="{{ url('https://via.placeholder.com/750x500') }}"/>
+                        <img class="image-uploader" src="{{ Storage::url($department->thumbnail) }}"/>
                         <input type="file" name="thumbnail"  id="filePhoto" />
                     </div>
-                    {{-- end form for input file image --}}
 
-                    {{-- form for input text/number/email/etc --}}
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-control-label" for="department-name">Name</label>
-                            <input type="text" name="name" id="department-name" class="form-control" placeholder="Nama Department">
+                            <input type="text" name="name" value="{{ $department->name ?? '' }}" id="name" class="form-control" placeholder="Nama Department">
                         </div>
                     </div>
-                    {{-- end form for input text/number/email/etc --}}
 
                     <div class="col-md-12 text-end">
                         <button type="submit" class=" btn btn-sm bg-gradient-primary mb-0">Save</button>
@@ -70,7 +67,7 @@
         .uploader .image-uploader {
             width:300px;
             min-height:350px;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
         }
 

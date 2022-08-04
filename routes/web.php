@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CreationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentationController;
+use App\Http\Controllers\Admin\UtilsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
             Route::resource('creation', CreationController::class);
             Route::resource('info', InfoController::class);
             Route::resource('documentation', DocumentationController::class);
-
+            Route::resource('utils', UtilsController::class);
         });
     });
 });
