@@ -22,17 +22,21 @@
                 @csrf
                 <div class="row">
 
+                    {{-- form for input file image --}}
                     <div class="uploader border-2" onclick="$('#filePhoto').click()">
                         <img class="image-uploader" src="{{ url('https://via.placeholder.com/750x500') }}"/>
                         <input type="file" name="thumbnail"  id="filePhoto" />
                     </div>
+                    {{-- end form for input file image --}}
 
+                    {{-- form for input text/number/email/etc --}}
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-control-label" for="department-name">Name</label>
                             <input type="text" name="name" id="department-name" class="form-control" placeholder="Nama Department">
                         </div>
                     </div>
+                    {{-- end form for input text/number/email/etc --}}
 
                     <div class="col-md-12 text-end">
                         <button type="submit" class=" btn btn-sm bg-gradient-primary mb-0">Save</button>
