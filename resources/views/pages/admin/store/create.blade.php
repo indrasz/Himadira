@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ' Creation')
+@section('title', 'Store')
 
 @section('content')
 
@@ -8,8 +8,8 @@
         <div class="card mb-4">
             <div class="card-header">
                 <div class="row align-items-center">
-                    <h6>Info Creation</h6>
-                    <form action="{{ route('dashboard.creation.store') }}" method="post" enctype="multipart/form-data">
+                    <h6>Info store</h6>
+                    <form action="{{ route('dashboard.store.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             {{-- form for input file image --}}
@@ -26,19 +26,19 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="name">Name</label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Nama Karya">
+                                        placeholder="Nama Produk">
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="category">Category</label>
-                                    <input type="text" name="category" id="category" class="form-control"
-                                        placeholder="Kategori Karya">
+                                    <label class="form-control-label" for="price">Price</label>
+                                    <input type="number" name="price" id="category" class="form-control"
+                                        placeholder="Harga Produk">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="url">Link Url</label>
                                     <input type="text" name="url" id="url" class="form-control"
-                                        placeholder="Link URL Karya">
+                                        placeholder="Link URL Produk">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label" for="description">Description</label>

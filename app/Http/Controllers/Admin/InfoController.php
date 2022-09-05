@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Info;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\Admin\InfoRequest;
 
 class InfoController extends Controller
 {
@@ -14,7 +18,8 @@ class InfoController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.info.index');
+        $info = Info::orderBy('created_at', 'desc')->get();
+        return view('pages.admin.info.index', compact('info'));
     }
 
     /**
@@ -24,7 +29,7 @@ class InfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.info.create');
     }
 
     /**
@@ -33,9 +38,15 @@ class InfoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InfoRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+        $data['thumbnail'] = $request->file('thumbnail')->store('assets/thumbnail/creation', 'public');
+        Info::create($data);
+
+        // toast()->success('Save has been success');
+        return redirect()->route('dashboard.info.index');
     }
 
     /**
@@ -55,9 +66,9 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Info $info)
     {
-        //
+        return view('pages.admin.info.edit', compact('info'));
     }
 
     /**
@@ -67,9 +78,29 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InfoRequest $request, Info $info)
     {
-        //
+        $data = $request->all();
+
+        $get_photo = Info::findOrFail($info->id);
+
+        if(isset($data['thumbnail'])){
+            $path = 'storage/'.$get_photo['thumbnail'];
+
+            if(File::exists($path)){
+                File::delete($path);
+            }else{
+                File::delete('storage/app/public/'.$get_photo['thumbnail']);
+            }
+
+            $data['thumbnail'] = $request->file('thumbnail')->store(
+                'assets/thumbnail/department', 'public'
+            );
+        }
+
+        $info->update($data);
+
+        return redirect()->route('dashboard.info.index');
     }
 
     /**
@@ -80,6 +111,9 @@ class InfoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $info = Info::findorFail($id);
+        $info->delete();
+        // toast()->success('Delete has been success');
+        return redirect()->route('dashboard.info.index');
     }
 }

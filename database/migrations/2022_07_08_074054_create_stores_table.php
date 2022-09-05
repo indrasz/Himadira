@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('url');
             $table->string('thumbnail');
-            $table->string('slug')->unique();
+            $table->string('slug');
 
             $table->softDeletes();
             $table->timestamps();

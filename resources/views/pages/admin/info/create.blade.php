@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ' Creation')
+@section('title', 'Info')
 
 @section('content')
 
@@ -8,8 +8,8 @@
         <div class="card mb-4">
             <div class="card-header">
                 <div class="row align-items-center">
-                    <h6>Info Creation</h6>
-                    <form action="{{ route('dashboard.creation.store') }}" method="post" enctype="multipart/form-data">
+                    <h6>Info Himadira</h6>
+                    <form action="{{ route('dashboard.info.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             {{-- form for input file image --}}
@@ -34,12 +34,7 @@
                                     <input type="text" name="category" id="category" class="form-control"
                                         placeholder="Kategori Karya">
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="url">Link Url</label>
-                                    <input type="text" name="url" id="url" class="form-control"
-                                        placeholder="Link URL Karya">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label class="form-control-label" for="description">Description</label>
                                     <textarea id="editor" name="description" class="form-control" placeholder="A few words about this Ormawa ..."></textarea>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ' Creation')
+@section('title', 'info')
 
 @section('content')
 
@@ -8,14 +8,15 @@
         <div class="card mb-4">
             <div class="card-header">
                 <div class="row align-items-center">
-                    <h6>Info Creation</h6>
-                    <form action="{{ route('dashboard.creation.store') }}" method="post" enctype="multipart/form-data">
+                    <h6>Update Info Himadira</h6>
+                    <form action="{{ route('dashboard.info.update', [$info->id]) }}" method="post" enctype="multipart/form-data">
+                        @method('PUT')
                         @csrf
                         <div class="row">
                             {{-- form for input file image --}}
                             <div class="col-md-4">
                                 <div class="uploader border-2" onclick="$('#filePhoto').click()">
-                                    <img class="image-uploader" src="{{ url('https://via.placeholder.com/750x500') }}" />
+                                    <img class="image-uploader" src="{{ Storage::url($info->thumbnail) }}"/>
                                     <input type="file" name="thumbnail" id="filePhoto" />
                                 </div>
                             </div>
@@ -25,24 +26,19 @@
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label class="form-control-label" for="name">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Nama Karya">
+                                    <input type="text" name="name" id="name" class="form-control" value="{{ $info->name ?? '' }}"
+                                        placeholder="Nama Produk">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="category">Category</label>
-                                    <input type="text" name="category" id="category" class="form-control"
+                                    <input type="text" name="category" id="category" class="form-control" value="{{ $info->category ?? '' }}"
                                         placeholder="Kategori Karya">
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="url">Link Url</label>
-                                    <input type="text" name="url" id="url" class="form-control"
-                                        placeholder="Link URL Karya">
-                                </div>
-                                <div class="form-group">
                                     <label class="form-control-label" for="description">Description</label>
-                                    <textarea id="editor" name="description" class="form-control" placeholder="A few words about this Ormawa ..."></textarea>
+                                    <textarea id="editor" name="description" class="form-control" placeholder="A few words about this Ormawa ...">{{ $info->description ?? '' }}</textarea>
                                 </div>
 
                                 <div class="text-end">

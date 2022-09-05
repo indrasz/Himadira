@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('category');
             $table->longText('description');
             $table->string('thumbnail');
+            $table->string('slug');
 
             $table->softDeletes();
             $table->timestamps();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Department;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -40,6 +41,7 @@ class DepartmentController extends Controller
     public function store(DepartmentRequest $request)
     {
         $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
         $data['thumbnail'] = $request->file('thumbnail')->store('assets/thumbnail/department', 'public');
         Department::create($data);
 

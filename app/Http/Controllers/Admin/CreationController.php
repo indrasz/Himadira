@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Creation;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\Admin\CreationRequest;
 
 class CreationController extends Controller
 {
@@ -14,7 +18,8 @@ class CreationController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.creation.index');
+        $creation = Creation::orderBy('created_at', 'desc')->get();
+        return view('pages.admin.creation.index', compact('creation'));
     }
 
     /**
@@ -33,9 +38,15 @@ class CreationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreationRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+        $data['thumbnail'] = $request->file('thumbnail')->store('assets/thumbnail/creation', 'public');
+        Creation::create($data);
+
+        // toast()->success('Save has been success');
+        return redirect()->route('dashboard.creation.index');
     }
 
     /**
@@ -55,9 +66,9 @@ class CreationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Creation $creation)
     {
-        //
+        return view('pages.admin.creation.edit', compact('creation'));
     }
 
     /**
@@ -67,9 +78,29 @@ class CreationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreationRequest $request, Creation $creation)
     {
-        //
+        $data = $request->all();
+
+        $get_photo = Creation::findOrFail($creation->id);
+
+        if(isset($data['thumbnail'])){
+            $path = 'storage/'.$get_photo['thumbnail'];
+
+            if(File::exists($path)){
+                File::delete($path);
+            }else{
+                File::delete('storage/app/public/'.$get_photo['thumbnail']);
+            }
+
+            $data['thumbnail'] = $request->file('thumbnail')->store(
+                'assets/thumbnail/department', 'public'
+            );
+        }
+
+        $creation->update($data);
+
+        return redirect()->route('dashboard.creation.index');
     }
 
     /**
@@ -80,6 +111,9 @@ class CreationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $creation = Creation::findorFail($id);
+        $creation->delete();
+        // toast()->success('Delete has been success');
+        return redirect()->route('dashboard.creation.index');
     }
 }

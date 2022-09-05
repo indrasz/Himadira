@@ -7,12 +7,14 @@
     <div class="row">
         <div class="col-12 mt-4">
             <div class="card mb-4">
+
                 <div class="d-flex card-header justify-content-between pb-0 p-3">
                     <h6 class="mb-1">Utils</h6>
                     <a href="{{ route('dashboard.utils.create') }}" class="btn btn-sm px-2 bg-gradient-primary ">
                         button
                     </a>
                 </div>
+                
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-12">

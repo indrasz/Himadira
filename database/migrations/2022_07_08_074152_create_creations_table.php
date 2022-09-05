@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('thumbnail');
             $table->string('url');
+            $table->string('slug');
 
             $table->softDeletes();
             $table->timestamps();
