@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Department;
 use Illuminate\Http\Request;
+use App\Models\Documentation;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\Admin\DocumentationRequest;
 
 class DocumentationController extends Controller
 {
@@ -14,7 +18,9 @@ class DocumentationController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.documentation.index');
+        $documentation = Documentation::orderBy('created_at', 'desc')->get();
+        $departments = Department::all();
+        return view('pages.admin.documentation.index', compact('documentation', 'departments'));
     }
 
     /**
@@ -24,7 +30,8 @@ class DocumentationController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        return view('pages.admin.documentation.create', compact('departments'));
     }
 
     /**
@@ -33,9 +40,14 @@ class DocumentationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocumentationRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['thumbnail'] = $request->file('thumbnail')->store('assets/thumbnail/documentation', 'public');
+        Documentation::create($data);
+
+        // toast()->success('Save has been success');
+        return redirect()->route('dashboard.documentation.index');
     }
 
     /**
@@ -55,9 +67,10 @@ class DocumentationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Documentation $documentation)
     {
-        //
+        $departments = Department::all();
+        return view('pages.admin.documentation.edit', compact('documentation', 'departments'));
     }
 
     /**
@@ -67,9 +80,29 @@ class DocumentationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DocumentationRequest $request, Documentation $documentation)
     {
-        //
+        $data = $request->all();
+
+        $get_photo = Documentation::findOrFail($documentation->id);
+
+        if(isset($data['thumbnail'])){
+            $path = 'storage/'.$get_photo['thumbnail'];
+
+            if(File::exists($path)){
+                File::delete($path);
+            }else{
+                File::delete('storage/app/public/'.$get_photo['thumbnail']);
+            }
+
+            $data['thumbnail'] = $request->file('thumbnail')->store(
+                'assets/thumbnail/documentation', 'public'
+            );
+        }
+
+        $documentation->update($data);
+
+        return redirect()->route('dashboard.documentation.index');
     }
 
     /**
@@ -80,6 +113,9 @@ class DocumentationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $documentation = Documentation::findorFail($id);
+        $documentation->delete();
+        // toast()->success('Delete has been success');
+        return redirect()->route('dashboard.documentation.index');
     }
 }
