@@ -21,23 +21,39 @@ use App\Http\Controllers\Admin\UtilsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Home
+Route::get("/", function () {
+  return view("pages.frontend.index");
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::name('dashboard.')->prefix('dashboard')->group(function () {
-        Route::middleware(['auth', 'admin'])->group(function () {
-            Route::get('/', [DashboardController::class, 'index'])->name('index');
-            Route::resource('store', StoreController::class);
-            Route::resource('advice', AdviceController::class);
-            Route::resource('department', DepartmentController::class);
-            Route::resource('creation', CreationController::class);
-            Route::resource('info', InfoController::class);
-            Route::resource('documentation', DocumentationController::class);
-            Route::resource('utils', UtilsController::class);
-        });
+// Gallery
+Route::get("gallery", function () {
+  return view("pages.frontend.gallery");
+});
+
+// News
+Route::get("news", function () {
+  return view("pages.frontend.news");
+});
+
+// About
+Route::get("about", function () {
+  return view("pages.frontend.about");
+});
+
+Route::group(["middleware" => ["auth:sanctum", "verified"]], function () {
+  Route::name("dashboard.")
+    ->prefix("dashboard")
+    ->group(function () {
+      Route::get("/", [DashboardController::class, "index"])->name("index");
+      Route::resource("store", StoreController::class);
+      Route::resource("advice", AdviceController::class);
+      Route::resource("department", DepartmentController::class);
+      Route::resource("creation", CreationController::class);
+      Route::resource("info", InfoController::class);
+      Route::resource("documentation", DocumentationController::class);
+      Route::resource("utils", UtilsController::class);
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . "/auth.php";

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title')
+@section('title', 'About |')
 
 @section('content')
 
@@ -47,18 +47,269 @@
         <div class="row">
             <div class="col-md-6 d-grid align-content-center p-3">
                 <h5 class="header-title text-center text-md-start">
-                    HIMADIRA FIT Telkom University
+                    Himadira Kabinet Aksara
                 </h5>
                 <p class="header-subtitle mt-4">
-                    HIMADIRA adalah Himpunan Mahasiswa D3 Rekayasa Perangkat Lunak Aplikasi. HIMADIRA merupakan sebuah wadah organisasi mahasiswa yang berada di lingkungan Fakultas Ilmu Terapan Telkom University.<br>
-                    #ThinkingOutOfTheBox <br>
-                    #TakeItOutFromTheBox <br>
-                    #CitaMuliaCitraMuliaKaryaMulia
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl hac quis proin odio ut lobortis et
+                    egestas gravida. Quis duis nec mi bibendum. Sit tincidunt morbi quam felis tincidunt nunc,
+                    varius. Vestibulum, lorem nisi venenatis cursus lacus odio diam.
+
                 </p>
             </div>
             <div class="col-md-6 d-flex justify-content-center p-3">
                 <img src="{{ asset('frontend/images/bg-aksara.png') }}" alt="logo" class="image-aksara">
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="w-100 h-100 pb-5">
+    <style>
+        .dira-goals-section .card-goals {
+            filter: drop-shadow(16px 14px 33px rgba(42, 56, 176, 0.15));
+            background: #FFFFFF;
+            border-radius: 15px;
+            min-height: 364px;
+        }
+
+        .dira-goals-section .title {
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 110%;
+            /* identical to box height, or 42px */
+
+            text-align: center;
+
+            color: #000000;
+        }
+
+        .dira-goals-section .subtitle {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 160%;
+            /* identical to box height, or 26px */
+
+            letter-spacing: 0.05em;
+
+            /* Grey */
+
+            color: #7F8487;
+        }
+
+        .dira-goals-section .goals-text {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 160%;
+            /* or 32px */
+
+            text-align: center;
+            letter-spacing: 0.05em;
+            width: 50%;
+
+            /* Grey */
+
+            color: #7F8487;
+        }
+
+        .dira-goals-section .card-goals h3 {
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 110%;
+            /* or 70px */
+
+            text-align: center;
+
+            /* primary */
+
+            color: #000957;
+        }
+
+        .dira-goals-section .card-goals .card-goals-text {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 160%;
+            /* or 29px */
+
+            text-align: center;
+            letter-spacing: 0.05em;
+
+            color: #000000;
+        }
+
+        @media (min-width:280px) and (max-width: 576px) {
+
+
+            .dira-goals-section .card-goals {
+                min-height: 100px;
+            }
+
+            .dira-goals-section .title {
+                font-size: 24px;
+                line-height: 110%;
+
+                color: #000000;
+            }
+
+            .dira-goals-section .subtitle {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+            }
+
+            .dira-goals-section .goals-text {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                width: 100%;
+            }
+
+            .dira-goals-section .card-goals h3 {
+                font-family: 'Raleway';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 40px;
+                line-height: 110%;
+            }
+
+            .dira-goals-section .card-goals .card-goals-text {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 160%;
+                /* or 29px */
+
+                text-align: center;
+                letter-spacing: 0.05em;
+
+                color: #000000;
+            }
+
+
+        }
+
+    </style>
+    <div class="container dira-goals-section p-3">
+        <h5 class="title text-center">
+            Visi & Misi
+        </h5>
+        <p class="subtitle text-center pt-3">
+            Visi & misi Kabinet <span style="color:#CF0000">Aksara</span>
+        </p>
+
+        <div class=" d-flex justify-content-center ">
+            <p class="goals-text text-center pt-3 ">
+                Bertujuan untuk mewujudkan HIMADIRA sebagai himpunan mahasiswa yang dapat berperan aktif dalam
+                mengabdi pada masyarakat serta terciptanya mahasiswa yang memiliki jiwa sosial yang tinggi,hubungan
+                yang akrab, berinovasi kreatif dan profesional dalam bekerja
+            </p>
+        </div>
+        <div class="row justify-content-center d-none d-sm-flex">
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-5">
+                    <h3>#1</h3>
+                    <p class="card-goals-text mt-3">
+                        Memperkuat keakraban serta menjaga hubungan antar angkatan maupun alumi agar terciptanya
+                        mahasiswa yang solid dan harmonis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-5">
+                    <h3>#2</h3>
+                    <p class="card-goals-text mt-3">
+                        Mendukung dan membantu mahasiswa untuk berprestasi dibidang akademik ataupun non-akademik.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-5">
+                    <h3>#3</h3>
+                    <p class="card-goals-text mt-3">
+                        Mewadahi dan memberikan solusi atas mahasiswa yang sedang mengalami masalah
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-5">
+                    <h3>#4</h3>
+                    <p class="card-goals-text mt-3">
+                        Memperluas relasi antar himpunan ataupun industri agar terciptanya kerjasama yang baik
+                        dengan kedua belah pihak. </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-5">
+                    <h3>#5</h3>
+                    <p class="card-goals-text mt-3">
+                        Menumbuhkan kepedulian mahasiswa terhadap isu-isu yang berada didalam kampus maupun di luar
+                        kampus. </p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel py-3 d-sm-none" style="background: #ffffff !important;" data-flickity='{"cellAlign" : "center", "contain": false, "groupCells": false, "wrapAround": true, "pageDots": true, "prevNextButtons": false, "draggable": true}'>
+            <!-- Card Container 1 -->
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-md-4 p-2">
+                    <h3>#1</h3>
+                    <p class="card-goals-text mt-3">
+                        Memperkuat keakraban serta menjaga hubungan antar angkatan maupun alumi agar terciptanya
+                        mahasiswa yang solid dan harmonis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-md-4 p-3">
+                    <h3>#2</h3>
+                    <p class="card-goals-text mt-3">
+                        Mendukung dan membantu mahasiswa untuk berprestasi dibidang akademik ataupun non-akademik.
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-md-4 p-3">
+                    <h3>#3</h3>
+                    <p class="card-goals-text mt-3">
+                        Mewadahi dan memberikan solusi atas mahasiswa yang sedang mengalami masalah
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-md-4 p-3">
+                    <h3>#4</h3>
+                    <p class="card-goals-text mt-3">
+                        Memperluas relasi antar himpunan ataupun industri agar terciptanya kerjasama yang baik
+                        dengan kedua belah pihak. </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 p-3">
+                <div class="card-goals text-center p-md-4 p-3">
+                    <h3>#5</h3>
+                    <p class="card-goals-text mt-3">
+                        Menumbuhkan kepedulian mahasiswa terhadap isu-isu yang berada didalam kampus maupun di luar
+                        kampus. </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -491,258 +742,5 @@
         </div>
     </div>
 </section>
-
-<section class="w-100 h-100 pb-5">
-    <style>
-        .dira-goals-section .card-goals {
-            filter: drop-shadow(16px 14px 33px rgba(42, 56, 176, 0.15));
-            background: #FFFFFF;
-            border-radius: 15px;
-            min-height: 364px;
-        }
-
-        .dira-goals-section .title {
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 38px;
-            line-height: 110%;
-            /* identical to box height, or 42px */
-
-            text-align: center;
-
-            color: #000000;
-        }
-
-        .dira-goals-section .subtitle {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 160%;
-            /* identical to box height, or 26px */
-
-            letter-spacing: 0.05em;
-
-            /* Grey */
-
-            color: #7F8487;
-        }
-
-        .dira-goals-section .goals-text {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 160%;
-            /* or 32px */
-
-            text-align: center;
-            letter-spacing: 0.05em;
-            width: 50%;
-
-            /* Grey */
-
-            color: #7F8487;
-        }
-
-        .dira-goals-section .card-goals h3 {
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 64px;
-            line-height: 110%;
-            /* or 70px */
-
-            text-align: center;
-
-            /* primary */
-
-            color: #000957;
-        }
-
-        .dira-goals-section .card-goals .card-goals-text {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 160%;
-            /* or 29px */
-
-            text-align: center;
-            letter-spacing: 0.05em;
-
-            color: #000000;
-        }
-
-        @media (min-width:280px) and (max-width: 576px) {
-
-
-            .dira-goals-section .card-goals {
-                min-height: 100px;
-            }
-
-            .dira-goals-section .title {
-                font-size: 24px;
-                line-height: 110%;
-
-                color: #000000;
-            }
-
-            .dira-goals-section .subtitle {
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 12px;
-            }
-
-            .dira-goals-section .goals-text {
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 12px;
-                width: 100%;
-            }
-
-            .dira-goals-section .card-goals h3 {
-                font-family: 'Raleway';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 40px;
-                line-height: 110%;
-            }
-
-            .dira-goals-section .card-goals .card-goals-text {
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 12px;
-                line-height: 160%;
-                /* or 29px */
-
-                text-align: center;
-                letter-spacing: 0.05em;
-
-                color: #000000;
-            }
-
-
-        }
-
-    </style>
-    <div class="container dira-goals-section p-3">
-        <h5 class="title text-center">
-            Visi & Misi
-        </h5>
-        <p class="subtitle text-center pt-3">
-            Visi & misi Kabinet <span style="color:#CF0000">Aksara</span>
-        </p>
-
-        <div class=" d-flex justify-content-center ">
-            <p class="goals-text text-center pt-3 ">
-                Bertujuan untuk mewujudkan HIMADIRA sebagai himpunan mahasiswa yang dapat berperan aktif dalam
-                mengabdi pada masyarakat serta terciptanya mahasiswa yang memiliki jiwa sosial yang tinggi,hubungan
-                yang akrab, berinovasi kreatif dan profesional dalam bekerja
-            </p>
-        </div>
-        <div class="row justify-content-center d-none d-sm-flex">
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-5">
-                    <h3>#1</h3>
-                    <p class="card-goals-text mt-3">
-                        Memperkuat keakraban serta menjaga hubungan antar angkatan maupun alumi agar terciptanya
-                        mahasiswa yang solid dan harmonis.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-5">
-                    <h3>#2</h3>
-                    <p class="card-goals-text mt-3">
-                        Mendukung dan membantu mahasiswa untuk berprestasi dibidang akademik ataupun non-akademik.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-5">
-                    <h3>#3</h3>
-                    <p class="card-goals-text mt-3">
-                        Mewadahi dan memberikan solusi atas mahasiswa yang sedang mengalami masalah
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-5">
-                    <h3>#4</h3>
-                    <p class="card-goals-text mt-3">
-                        Memperluas relasi antar himpunan ataupun industri agar terciptanya kerjasama yang baik
-                        dengan kedua belah pihak. </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-5">
-                    <h3>#5</h3>
-                    <p class="card-goals-text mt-3">
-                        Menumbuhkan kepedulian mahasiswa terhadap isu-isu yang berada didalam kampus maupun di luar
-                        kampus. </p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel py-3 d-sm-none" style="background: #ffffff !important;" data-flickity='{"cellAlign" : "center", "contain": false, "groupCells": false, "wrapAround": true, "pageDots": true, "prevNextButtons": false, "draggable": true}'>
-            <!-- Card Container 1 -->
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-md-4 p-2">
-                    <h3>#1</h3>
-                    <p class="card-goals-text mt-3">
-                        Memperkuat keakraban serta menjaga hubungan antar angkatan maupun alumi agar terciptanya
-                        mahasiswa yang solid dan harmonis.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-md-4 p-3">
-                    <h3>#2</h3>
-                    <p class="card-goals-text mt-3">
-                        Mendukung dan membantu mahasiswa untuk berprestasi dibidang akademik ataupun non-akademik.
-                    </p>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-md-4 p-3">
-                    <h3>#3</h3>
-                    <p class="card-goals-text mt-3">
-                        Mewadahi dan memberikan solusi atas mahasiswa yang sedang mengalami masalah
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-md-4 p-3">
-                    <h3>#4</h3>
-                    <p class="card-goals-text mt-3">
-                        Memperluas relasi antar himpunan ataupun industri agar terciptanya kerjasama yang baik
-                        dengan kedua belah pihak. </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 p-3">
-                <div class="card-goals text-center p-md-4 p-3">
-                    <h3>#5</h3>
-                    <p class="card-goals-text mt-3">
-                        Menumbuhkan kepedulian mahasiswa terhadap isu-isu yang berada didalam kampus maupun di luar
-                        kampus. </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-@include('includes.frontend.footer')
 
 @endsection
