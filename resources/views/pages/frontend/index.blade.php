@@ -56,7 +56,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center p-3">
-                    <img src="images/bg-aksara.png" alt="logo" class="image-aksara">
+                    <img src="/frontend/images/bg-aksara.png" alt="logo" class="image-aksara">
                 </div>
             </div>
         </div>
@@ -655,7 +655,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center p-3">
-                    <img src="images/bg-intern.png" alt="logo" class="image-aksara">
+                    <img src="/frontend/images/bg-intern.png" alt="logo" class="image-aksara">
                 </div>
             </div>
 

@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\StoreController;
+use App\Http\Controllers\Admin\UtilsController;
 use App\Http\Controllers\Admin\AdviceController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\CreationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentationController;
-use App\Http\Controllers\Admin\UtilsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ use App\Http\Controllers\Admin\UtilsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('dashboard.')->prefix('dashboard')->group(function () {

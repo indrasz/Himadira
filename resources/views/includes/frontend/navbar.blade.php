@@ -3,7 +3,7 @@
     <div class="navbar-main container position-relative " style="font-family: 'Poppins', sans-serif">
         <nav class="navbar navbar-expand-lg navbar-light py-4 px-md-5 px-3">
             <a href="#">
-                <img style="margin-right: 0.75rem" src="images/main-logo.png" alt="main-logo" width="50" />
+                <img style="margin-right: 0.75rem" src="/frontend/images/main-logo.png" alt="main-logo" width="50" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#targetModal-item">
                 <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
                     <div class="modal-content modal-content bg-white border-0 pb-4">
                         <div class="modal-header" style="padding: 2rem; padding-bottom: 0">
                             <a class="modal-title" id="targetModalLabel">
-                                <img style="margin-top: 0.5rem" src="images/main-logo.png" alt="main-logo"
+                                <img style="margin-top: 0.5rem" src="/frontend/images/main-logo.png" alt="main-logo"
                                     width="40" />
                             </a>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -27,7 +27,7 @@
                         <div class="modal-body" style="padding: 2rem; padding-top: 0; padding-bottom: 0">
                             <ul class="navbar-nav responsive me-auto mt-2 mt-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">BEM KEMA FIT</a>
+                                    <a class="nav-link active" href="#">Himadira</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#"
