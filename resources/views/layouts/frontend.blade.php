@@ -5,7 +5,7 @@
     @include('includes.frontend.meta')
 
     <title>
-        @yield('title') | Himadira
+        @yield('title') HIMADIRA FIT Telkom University
     </title>
 
     @stack('before-style')
