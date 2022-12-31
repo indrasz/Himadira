@@ -10,6 +10,11 @@ use App\Http\Controllers\Admin\CreationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentationController;
+use App\Http\Controllers\Frontend\CreationController as FrontendCreationController;
+use App\Http\Controllers\Frontend\InfoController as FrontendInfoController;
+use App\Http\Controllers\Frontend\InternController;
+use App\Http\Controllers\Frontend\SmartController;
+use App\Http\Controllers\Frontend\StoreController as FrontendStoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,24 +27,17 @@ use App\Http\Controllers\Admin\DocumentationController;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', [HomeController::class, 'index'])->name('home');
-=======
 // Home
-Route::get("/", function () {
-  return view("pages.frontend.index");
-});
->>>>>>> 0a3dc6c55634d4864eae6bfc67dfbe8fbab84cfe
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/info', [FrontendInfoController::class, 'index'])->name('info');
+Route::get('/info/{info}', [FrontendInfoController::class, 'show'])->name('show-info');
+Route::get('/intern', [InternController::class, 'index'])->name('intern');
+Route::get('/intern/{info}', [InternController::class, 'show'])->name('show-intern');
+Route::get('/smart', [SmartController::class, 'index'])->name('smart');
+Route::get('/smart/{info}', [SmartController::class, 'show'])->name('show-smart');
+Route::get('/store', [FrontendStoreController::class, 'index'])->name('store');
+Route::get('/creation', [FrontendCreationController::class, 'index'])->name('creation');
 
-// Gallery
-Route::get("gallery", function () {
-  return view("pages.frontend.gallery");
-});
-
-// News
-Route::get("news", function () {
-  return view("pages.frontend.news");
-});
 
 // About
 Route::get("about", function () {
