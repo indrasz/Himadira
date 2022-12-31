@@ -9,14 +9,15 @@
             <div class="card-header">
                 <div class="row align-items-center">
                     <h6>Update Info Himadira</h6>
-                    <form action="{{ route('dashboard.info.update', [$info->id]) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.info.update', [$info->id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="row">
                             {{-- form for input file image --}}
                             <div class="col-md-4">
                                 <div class="uploader border-2" onclick="$('#filePhoto').click()">
-                                    <img class="image-uploader" src="{{ Storage::url($info->thumbnail) }}"/>
+                                    <img class="image-uploader" src="{{ Storage::url($info->thumbnail) }}" />
                                     <input type="file" name="thumbnail" id="filePhoto" />
                                 </div>
                             </div>
@@ -26,14 +27,26 @@
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label class="form-control-label" for="name">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" value="{{ $info->name ?? '' }}"
-                                        placeholder="Nama Produk">
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        value="{{ $info->name ?? '' }}" placeholder="Nama Info">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="category">Category</label>
-                                    <input type="text" name="category" id="category" class="form-control" value="{{ $info->category ?? '' }}"
-                                        placeholder="Kategori Karya">
+
+                                    <select id="category" name="category" autocomplete="category" class="form-control"
+                                        required>
+                                        @if ($info->category == 'SMART')
+                                            <option value="{{ $info->category }}" selected>Himadira Pintar</option>
+                                        @elseif ($info->category == 'INTERN')
+                                            <option value="{{ $info->category }}" selected>Program Magang</option>
+                                        @else
+                                            <option value="{{ $info->category }}" selected>Berita Dira</option>
+                                        @endif
+                                        <option value="INFO">Berita Dira</option>
+                                        <option value="INTERN">Program Magang</option>
+                                        <option value="SMART">Himadira Pintar</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">

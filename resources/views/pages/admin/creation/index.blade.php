@@ -4,69 +4,15 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-12 mt-4">
-            <div class="card mb-4">
-                <div class="d-flex card-header justify-content-between pb-0 p-3">
-                    <h6 class="mb-1">Creation</h6>
-                    <a href="{{ route('dashboard.creation.create') }}" class="btn btn-sm px-2 bg-gradient-primary ">
-                        add new creation
-                    </a>
-                </div>
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="carousel " style="background: #ffffff !important;"
-                                data-flickity='{ "cellAlign": "left", "contain": true, "groupCells": true, "wrapAround": false, "pageDots": false, "prevNextButtons": false, "draggable": true }'>
-
-                                @forelse ($creation as $key => $item)
-                                    <div class="col-xl-3 col-md-6 bg-none mb-xl-0 mb-4 mx-3">
-                                        <div class="card card-blog card-plain bg-none">
-                                            <div class="position-relative">
-                                                <a class="d-block shadow-xl border-radius-xl">
-
-                                                    @if ($item->thumbnail != null)
-                                                        <img alt="img-blur-shadow" loading="lazy"
-                                                            class="img-fluid shadow border-radius-xl"
-                                                            src="{{ url(Storage::url($item->thumbnail)) }}"
-                                                            style="min-height: 200px; -o-object-fit: cover; object-fit: cover;" />
-                                                    @else
-                                                        <img alt="img-blur-shadow" loading="lazy"
-                                                            class="img-fluid shadow border-radius-xl"
-                                                            src="{{ url('https://via.placeholder.com/750x500') }}"
-                                                            style="min-height: 200px; -o-object-fit: cover; object-fit: cover;" />
-                                                    @endif
-
-
-                                                </a>
-                                            </div>
-                                            <div class="card-body px-1 pb-0">
-                                                <h5 class="text-center">
-                                                    {{ $item->name }}
-                                                </h5>
-                                                </a>
-                                                <span class="d-inline-block text-truncate" style="max-width: 250px;">
-                                                </span>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-                                @endforelse
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h6>Creation table</h6>
+                 <div class="d-flex card-header justify-content-between pb-0 p-3">
+                    <h6 class="mb-1">Creation</h6>
+                    <a href="{{ route('dashboard.creation.create') }}" class="btn btn-sm px-2 bg-gradient-primary ">
+                        add new creation
+                    </a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

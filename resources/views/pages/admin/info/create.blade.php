@@ -26,15 +26,19 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="name">Name</label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Nama Karya">
+                                        placeholder="Nama Info">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="category">Category</label>
-                                    <input type="text" name="category" id="category" class="form-control"
-                                        placeholder="Kategori Karya">
+                                    <select id="category" name="category" autocomplete="category"
+                                        class="form-control" required>
+                                        <option value="INFO">Berita Dira</option>
+                                        <option value="INTERN">Program Magang</option>
+                                        <option value="SMART">Himadira Pintar</option>
+                                    </select>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="form-control-label" for="description">Description</label>
                                     <textarea id="editor" name="description" class="form-control" placeholder="A few words about this Ormawa ..."></textarea>
